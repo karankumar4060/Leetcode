@@ -5,17 +5,19 @@ public:
         int n=nums.size();
 
         int arr_sum=0;
-        for(int i=0; i<n; i++){
-            arr_sum=arr_sum+nums[i];
-        }
-
         int ac_sum=0;
         for(int i=1; i<=n;i++){
-            ac_sum=ac_sum+i;
+            ac_sum=ac_sum^i;
         }
 
-        if(arr_sum==ac_sum) return 0;       
+        for(int i=0; i<n; i++){
+            ac_sum=ac_sum^nums[i];
+        }
+
         
-        return ac_sum-arr_sum;
+
+        // if(arr_sum==ac_sum) return 0;       
+        
+        return ac_sum;
     }
 };
